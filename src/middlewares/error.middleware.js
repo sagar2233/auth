@@ -7,7 +7,7 @@ const errorHandler = (err, req, res, next) => {
     correlationId: req.correlationId,
     stack: err.stack,
     path: req.originalUrl,
-    method: req.method,
+    method: req.method,x    
   });
 
   // Handle known error types

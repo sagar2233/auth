@@ -1,4 +1,6 @@
 const createError = require('http-errors');
+
+
 const {
   register,
   login,
@@ -9,6 +11,8 @@ const {
   forgotPassword,
   resetPassword,
 } = require('../services/auth.service');
+
+
 const {
   registerSchema,
   loginSchema,
@@ -19,11 +23,12 @@ const {
   forgotPasswordSchema,
   resetPasswordSchema,
 } = require('../utils/validation');
+
 const logger = require('../utils/logger');
 
 const validate = (schema) => async (req, res, next) => {
   try {
-    await schema.validateAsync(req.body, { abortEarly: false });
+    await schema.validateAsync(req.body, { abortEarly: false });  
     next();
   } catch (err) {
     logger.warn('Validation failed', {
